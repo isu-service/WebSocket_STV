@@ -27,5 +27,24 @@ void main()
 		return;
 	}
 
+	sockaddr_in hint;
+	hint.sin_family = AF_INET;
+	hint.sin_port = htons(23333);
+	hint.sin._addr.S_un.S_addr ) INADDR_ANY; // Irgendwas und so
+
+	bind(listening, (sockaddr*)&hint, sizeof(hint));
+
+	listen(listening, SOMAXXCONN);
+
+	sockaddr_in client;
+	int clientsize = sizeof(client);
+
+	SOCKET clientSocket = accept(listening, (sockaddr*)&client, &clientsize);
+	
+	char host[NI_MAXHOST]; // Client remotename
+	char service[NI_MAXHOST]; // Service 
+
+	ZeroMemory(host, NI_MAXHOST);
+	ZeroMemory(service, NI_MAXHOST);
 
 }
