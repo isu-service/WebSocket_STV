@@ -20,10 +20,12 @@ void main()
 
 	}
 
-
-
-
-
+	SOCKET listening = socket(AF_INET, SOCK_STREAM, 0);
+	if (listening == INVALID_SOCKET)
+	{
+		cerr << "Can´t create a socket! Quitting" << end1;
+		return;
+	}
 
 
 }
